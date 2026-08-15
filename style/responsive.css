@@ -1,0 +1,40 @@
+/* for phones */
+@media (max-width : 600px) {
+    .container {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}
+
+/* for tablet */
+@media (min-width: 600px ) and (max-width: 992px) {
+    .container {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+}
+
+/* for computers */
+@media (min-width : 992px) {
+    header .fa-solid {
+        display: none;
+    }
+    .menu {
+        height: 50px;
+        transform: translateX(-20%);
+        transition: none;
+        background-color: transparent;
+        display: flex;
+        flex-direction: row;
+        position: absolute;
+        top: 0;
+        left: 50%;
+    }
+    .menu a {
+        padding-right: 20px;
+    }
+    .container {
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+}
