@@ -67,6 +67,7 @@ section.hero {
 }
 section.hero .slider {
     position: relative;
+    aspect-ratio: 390 / 260;
 }
 section.hero .slider .slide {
     position: absolute;
@@ -77,9 +78,9 @@ section.hero .slider .slide {
 section.hero .slide.active {
     opacity: 1;
 }
-section.hero .slider .slide:first-child {
+/* section.hero .slider .slide:first-child {
     position: relative;
-}
+} */
 section.hero .slider img {
     width: 100%;
     display: block;
@@ -106,5 +107,27 @@ section.hero img {
 .hero .slider-dots div.active {
     width: 30px;
     background-color: var(--brandcolor);
+}
+.hero .hero-content {
+    padding-left: 10px;
+    position: absolute;
+    top: 15px;
+    color: white;
+    width: 60vw;
+}
+.hero .hero-content p {
+    padding-top: 20px;
+    margin-bottom: 20px;
+}
+.hero .hero-content span {
+    color: var(--brandcolor);
+}
+.hero .hero-content a {
+    text-decoration: none;
+    background-color: var(--brandcolor);
+    padding: 10px;
+    color: var(--maincolor);
+    border-radius: 5px;
+    font-weight: 700;
 }
 /* end hero */
