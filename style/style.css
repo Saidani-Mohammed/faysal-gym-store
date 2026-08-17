@@ -13,10 +13,8 @@ body {
     --secondarycolor : #151515;
     --brandcolor : #D4AF37;
 }
+
 /* start header  */
-header {
-    /* background-color: var(--maincolor); */
-}
 header .nav {
     background-color: var(--maincolor);
     height: 50px;
@@ -43,8 +41,8 @@ header .cart {
     transition: transform 0.4s ease;
     display: flex;
     flex-direction: column;
-    /* justify-content: space-evenly; */
     align-items: center;
+    z-index: 999;
 }
 header .active {
     transform: translateX(0);
@@ -61,3 +59,52 @@ header .active {
     color: var(--brandcolor);
 }
 /* end header  */
+
+/* start hero */
+section.hero {
+    position: relative;
+    width: 100%;
+}
+section.hero .slider {
+    position: relative;
+}
+section.hero .slider .slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+section.hero .slide.active {
+    opacity: 1;
+}
+section.hero .slider .slide:first-child {
+    position: relative;
+}
+section.hero .slider img {
+    width: 100%;
+    display: block;
+    height: auto;
+}
+section.hero img {
+    width: 100%;
+}
+.hero .slider-dots {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+}
+.hero .slider-dots div {
+    width: 20px;
+    height: 7px;
+    border-radius: 5px;
+    background-color: white;
+    transition: all 1s ease;
+}
+.hero .slider-dots div.active {
+    width: 30px;
+    background-color: var(--brandcolor);
+}
+/* end hero */
