@@ -12,6 +12,15 @@
         padding-left: 30px;
         padding-right: 30px;
     }
+    .hero .hero-content {
+        top: 40%;
+        transform: translateY(-50%);
+        padding-left: 30px;
+    }
+    .hero .hero-content p {
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
 }
 
 /* for computers */
@@ -36,5 +45,24 @@
     .container {
         padding-left: 50px;
         padding-right: 50px;
+    }
+    .slide {
+        height: calc(100vh - 50px);
+        overflow: hidden;
+    }
+    .slide img {
+        object-fit: cover;
+    }
+    .slider-dots {
+        top: 90vh;
+    }
+    body {
+        overflow-x: hidden;
+    }
+    .hero .hero-content {
+        padding-left: 100px;
+        top: 30%;
+        width: 400px;
+        font-size: 20px;
     }
 }
