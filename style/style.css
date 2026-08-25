@@ -136,6 +136,7 @@ section.categories img {
 }
 section.categories .cate {
     display: flex;
+    justify-content: space-between;
     gap: 3px;
 }
 section.categories .cate div:hover img {
@@ -151,14 +152,21 @@ section.categories h3 {
     padding: 10px 0;
     text-align: center;
 }
-/* section.categories h3::before,
-section.categories h3::after {
-    content: "";
-    display: inline-block;
-    width: 100px;
-    height: 10px;
-    border-top-left-radius: 0;
-    background-color: var(--brandcolor);
-    vertical-align: middle;
-} */
 /* end categories */
+
+/* start featured product */
+section.featured {
+    color: white;
+}
+section.featured h3 {
+    text-align: center;
+    padding: 20px;
+}
+section.featured img {
+    aspect-ratio: 1/1;
+    width: 200px;
+}
+section.featured .fea-p {
+    display: grid;
+}
+/* end featured product */

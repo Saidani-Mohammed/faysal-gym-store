@@ -21,6 +21,16 @@
         padding-top: 30px;
         padding-bottom: 30px;
     }
+    .cate {
+        display: flex;
+        justify-content: space-evenly;
+    }
+    .categories .cate p {
+        font-size: 15px;
+    }
+    .categories h3 {
+        font-size: 25px;
+    }
 }
 
 /* for computers */
