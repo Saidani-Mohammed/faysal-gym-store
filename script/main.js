@@ -100,11 +100,27 @@ let container = document.querySelector(".fea-p")
 
 featuredP.forEach( (e) => {
     container.innerHTML += `
-    <div class="product">
+    <div class="product" data-id="${e.id}">
     <img src="${e.image}" alt="">
     <h4>${e.name}</h4>
     <p>${e.price}</p>
-    <a href="product.html?id=${e.id}">View Product</a>
+    <button class="add-to-cart">Add to Cart</button>
     </div>
     `
+})
+
+// start product event click 
+
+container.addEventListener("click", (e) => {
+    let addBtn = e.target.closest(".add-to-cart")
+    if (addBtn){
+        let pCard = addBtn.closest(".product")
+        let pId = Number(pCard.dataset.id)
+        addToCart(id)                            // add to cart function
+        return
+    }
+    let pCard = e.target.closest(".product")
+    if (!pCard) return
+    let pId = pCard.dataset.id
+    window.location.href = `product.html?id=${pId}`
 })

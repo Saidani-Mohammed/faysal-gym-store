@@ -11,11 +11,16 @@ body {
 }
 :root{
     --maincolor : #0B0B0B;
-    --secondarycolor : #151515;
+    --secondarycolor : rgb(34, 34, 36);
     --brandcolor : #D4AF37;
 }
 
 /* start header  */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
 header .nav {
     background-color: var(--maincolor);
     height: 50px;
@@ -34,8 +39,8 @@ header .cart {
     width: 30px;
 }
 .menu {
-    background-color: rgb(34, 34, 36);
-    height: calc(100dvh - 50px);
+    background-color: rgba(34, 34, 36, 0.95);
+    height: 100%;
     width: 100%;
     position: fixed;
     transform: translateX(-100%);
@@ -147,7 +152,7 @@ section.categories p {
     font-size: 12px;
     text-align: center;
 }
-section.categories h3 {
+section.categories h2 {
     color: white;
     padding: 10px 0;
     text-align: center;
@@ -158,15 +163,108 @@ section.categories h3 {
 section.featured {
     color: white;
 }
-section.featured h3 {
+section.featured h2 {
     text-align: center;
     padding: 20px;
 }
 section.featured img {
     aspect-ratio: 1/1;
-    width: 200px;
+    width: 100%;
+    transition: all 0.2s;
+    /* object-fit: contain; */
 }
 section.featured .fea-p {
     display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+}
+section.featured .fea-p .product {
+    background-color: var(--secondarycolor);
+    border-radius: 10px;
+    overflow: hidden;
+}
+section.featured .fea-p p {
+    color: var(--brandcolor);
+    font-weight: bold;
+    font-size: large;
+    padding: 10px;
+}
+section.featured .fea-p h4 {
+    padding: 10px 0 0 5px
+}
+section.featured .fea-p button {
+    background-color: transparent;
+    color: white;
+    border: 2px var(--brandcolor) solid;
+    margin-left: 50%;
+    width: max-content;
+    padding: 10px 20px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    transform: translateX(-50%);
+    font-size: larger;
+}
+section.featured .fea-p button:hover,
+section.featured a:hover {
+    background-color: var(--brandcolor);
+    font-weight: bold;
+    cursor: pointer;
+}
+section.featured .fea-p .product:hover img {
+    transform: scale(1.1);
+}
+section.featured a {
+    display: inline-block;
+    margin: 20px 0;
+    margin-left: 50%;
+    padding: 10px 30px;
+    width: max-content;
+    transform: translateX(-50%);
+    text-decoration: none;
+    color: white;
+    border: 2px var(--brandcolor) solid;
+    border-radius: 10px;
+    font-size: larger;
 }
 /* end featured product */
+
+/* start about page  */
+section.about h2 {
+    color: white;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 40px;
+}
+section.about svg {
+    width: 90px;
+    padding-right: 30px;
+}
+section.about span::before {
+    content: "";
+    display: inline-block;
+    border-radius: 50%;
+    width: 4px;
+    height: 50px;
+    background-color: var(--secondarycolor);
+}
+section.about p {
+    color: white;
+    padding-top: 10px;
+    font-size: 20px;
+}
+section.about h5 {
+    color: white;
+    font-size: 25px;
+}
+section.about span {
+    display: inline-block;
+    margin-right: 30px;
+    height: 100%;
+    background-color: var(--secondarycolor);
+}
+section.about .info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+}
+/* end about page  */
