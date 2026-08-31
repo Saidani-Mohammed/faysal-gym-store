@@ -109,6 +109,21 @@ featuredP.forEach( (e) => {
     `
 })
 
+// add to cart function
+let cart = JSON.parse(localStorage.getItem("cart")) || []
+function addToCart(id) {
+    const existingProduct = cart.find( (e) => e.id === id);
+    if (existingProduct) {
+        existingProduct.quantity++
+    } else {
+        cart.push({
+            id : id,
+            quantity : 1
+        })
+    }
+    localStorage.setItem("cart", JSON.stringify(cart));
+}
+
 // start product event click 
 
 container.addEventListener("click", (e) => {
@@ -116,7 +131,7 @@ container.addEventListener("click", (e) => {
     if (addBtn){
         let pCard = addBtn.closest(".product")
         let pId = Number(pCard.dataset.id)
-        addToCart(id)                            // add to cart function
+        addToCart(pId)
         return
     }
     let pCard = e.target.closest(".product")
