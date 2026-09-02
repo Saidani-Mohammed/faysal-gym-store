@@ -6,6 +6,10 @@ menuBtn.addEventListener("click", () => {
     menu.classList.toggle("active")
 })
 
+let cartBtn = document.querySelector("header .cart")
+cartBtn.addEventListener("click", function () {
+    window.location.href = `cart.html`
+})
 // slider function
 let slides = document.querySelectorAll(".slide")
 let dots = document.querySelectorAll(".dot")
