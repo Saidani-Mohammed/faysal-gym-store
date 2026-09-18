@@ -199,6 +199,44 @@ function updateSummary() {
 
 displayCart();
 
+// wilaya input 
+let wilayaSelected = document.getElementById("wilaya")
+let communeSelected = document.getElementById("commune")
+let wilayas = []
+let communes = []
+
+async function loadLocations() {
+    const wilayaResponse = await fetch("./data/main.json");
+    const communeResponse = await fetch("./data/communes.json");
+    let w = await wilayaResponse.json();
+    let c = await communeResponse.json();
+    wilayas = w.wilayas
+    communes = c.communes
+    renderWilayas();
+}
+function renderWilayas () {
+    wilayas.forEach((e) => {
+        wilayaSelected.innerHTML += `
+            <option value="${e.id}">${e.id} - ${e.name} | ${e.name_ar}</option>
+        `
+    })
+}
+loadLocations();
+wilayaSelected.addEventListener("change", () => {
+    let wilayaSelectedId = Number(wilayaSelected.value)
+    communeSelected.removeAttribute("disabled")
+    communeSelected.innerHTML = `<option value="">Choose Commune | اختر البلدية</option>`
+    let filteredCommunes = communes.filter((e) => {
+        return e.wilaya_id === wilayaSelectedId
+    })
+    filteredCommunes.forEach((e) => {
+        communeSelected.innerHTML += `
+            <option value="${e.id}">${e.name} | ${e.name_ar}</option>
+        `
+    })
+})
+loadLocations()
+
 // checkout message btn 
 
 let checkoutBtn = document.querySelector(".checkout-btn")

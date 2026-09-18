@@ -1,246 +1,324 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css">
-    <link rel="stylesheet" href="style/responsive.css">
-    <style>
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
-    body {
-        scroll-behavior: smooth;
-        font-family: Arial, Helvetica, sans-serif;
-        background-color: var(--maincolor);
-    }
-    :root{
-        --maincolor : #0B0B0B;
-        --secondarycolor : rgb(34, 34, 36);
-        --brandcolor : #D4AF37;
-    }
-    .cart-page {
-        min-height: calc(100dvh - 50px);
-        background-color: #2f2f2f;
-        color: white;
-        padding: 30px 15px 50px;
-    }
-    .cart-page h1 {
-        font-size: 28px;
-        margin-bottom: 25px;
-    }
-    /* CART ITEM */
-    .cart-item {
-        display: flex;
-        gap: 12px;
-        background-color: #111;
-        border: 1px solid #242424;
-        border-radius: 10px;
-        padding: 10px;
-        margin-bottom: 12px;
-    }
-    /* Image */
-    .cart-image {
-        width: 100px;
-        height: 100px;
-        flex-shrink: 0;
-        background-color: #f5f5f5;
-        border-radius: 7px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        overflow: hidden;
-    }
-    .cart-image img {
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
-    }
-    /* Info */
-    .cart-info {
-        flex: 1;
-        min-width: 0;
-    }
-    .cart-info h3 {
-        font-size: 15px;
-        margin: 3px 0 8px;
-    }
-    .cart-price {
-        color: var(--brandcolor);
-        font-weight: bold;
-        margin-bottom: 12px;
-    }
-    /* QUANTITY */
-    .cart-actions {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-    }
-    .quantity {
-        display: flex;
-        align-items: center;
-        border: 1px solid #333;
-        border-radius: 5px;
-        overflow: hidden;
-    }
-    .quantity button {
-        width: 28px;
-        height: 28px;
-        border: none;
-        background-color: #1c1c1c;
-        color: white;
-        cursor: pointer;
-    }
-    .quantity span {
-        width: 30px;
-        text-align: center;
-    }
-    /* Remove */
-    .remove-btn {
-        border: none;
-        background: none;
-        color: red;
-        cursor: pointer;
-    }
-    /* SUMMARY */
-    .cart-summary {
-        background-color: #111;
-        border: 1px solid #242424;
-        border-radius: 10px;
-        padding: 20px;
-        margin-top: 30px;
-    }
-    .cart-summary h2 {
-        font-size: 20px;
-        margin-bottom: 20px;
-    }
-    .summary-row {
-        display: flex;
-        justify-content: space-between;
-        color: #aaa;
-        margin-bottom: 15px;
-    }
-
-    .summary-total {
-        display: flex;
-        justify-content: space-between;
-        border-top: 1px solid #333;
-        padding-top: 15px;
-        margin-top: 10px;
-        font-size: 18px;
-        font-weight: bold;
-    }
-    .summary-total span:last-child {
-        color: var(--brandcolor);
-    }
-    /* Checkout */
-    .checkout-btn {
-        display: block;
-        width: 100%;
-        padding: 13px;
-        margin-top: 20px;
-        background-color: var(--brandcolor);
-        color: #080808;
-        text-align: center;
-        text-decoration: none;
-        border-radius: 6px;
-        font-weight: bold;
-    }
-    @media (min-width: 768px) {
-        .cart-page {
-            max-width: 1200px;
-            margin: auto;
-            padding: 50px 30px;
-        }
-        .cart-container {
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 30px;
-            align-items: start;
-        }
-        .cart-summary {
-            margin-top: 0;
-            position: sticky;
-            top: 20px;
-        }
-    }
-    </style>
-</head>
-<body>
-    <header>
-        <div class="container nav">
-            <i class="fa-solid fa-bars"></i>
-            <a href="index.html"><img class="logo" src="imgs/1000057679.png" alt="logo"></a>
-            <img class="cart" src="imgs/shopping-cart (1).png" alt="cart">
-        </div>
-        <div class="container menu">
-            <a href="index.html">Home</a>
-            <a href="#">Categorie</a>
-            <a href="#">Products</a>
-            <a href="#">Contact</a>   
-        </div>
-    </header>
-    <section class="cart-page">
-        <h1>Your Cart</h1>
-        <div class="cart-container">
-            <div class="cart-items" id="cartItems"></div>
-            <div class="cart-summary">
-                <h2>Order Summary</h2>
-                <div class="summary-total">
-                    <span>Total</span>
-                    <span id="total">0 DA</span>
-                </div>
-                <a class="checkout-btn">Checkout</a>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <link rel="stylesheet" href="style/style.css" />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css"
+        />
+        <link rel="stylesheet" href="style/responsive.css" />
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            body {
+                scroll-behavior: smooth;
+                font-family: Arial, Helvetica, sans-serif;
+                background-color: var(--maincolor);
+            }
+            :root {
+                --maincolor: #0b0b0b;
+                --secondarycolor: rgb(34, 34, 36);
+                --brandcolor: #d4af37;
+            }
+            .cart-page {
+                min-height: calc(100dvh - 50px);
+                background-color: #2f2f2f;
+                color: white;
+                padding: 30px 15px 50px;
+            }
+            .cart-page h1 {
+                font-size: 28px;
+                margin-bottom: 25px;
+            }
+            /* CART ITEM */
+            .cart-item {
+                display: flex;
+                gap: 12px;
+                background-color: #111;
+                border: 1px solid #242424;
+                border-radius: 10px;
+                padding: 10px;
+                margin-bottom: 12px;
+            }
+            /* Image */
+            .cart-image {
+                width: 100px;
+                height: 100px;
+                flex-shrink: 0;
+                background-color: #f5f5f5;
+                border-radius: 7px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                overflow: hidden;
+            }
+            .cart-image img {
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+            }
+            /* Info */
+            .cart-info {
+                flex: 1;
+                min-width: 0;
+            }
+            .cart-info h3 {
+                font-size: 15px;
+                margin: 3px 0 8px;
+            }
+            .cart-price {
+                color: var(--brandcolor);
+                font-weight: bold;
+                margin-bottom: 12px;
+            }
+            /* QUANTITY */
+            .cart-actions {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+            .quantity {
+                display: flex;
+                align-items: center;
+                border: 1px solid #333;
+                border-radius: 5px;
+                overflow: hidden;
+            }
+            .quantity button {
+                width: 28px;
+                height: 28px;
+                border: none;
+                background-color: #1c1c1c;
+                color: white;
+                cursor: pointer;
+            }
+            .quantity span {
+                width: 30px;
+                text-align: center;
+            }
+            /* Remove */
+            .remove-btn {
+                border: none;
+                background: none;
+                color: red;
+                cursor: pointer;
+            }
+            /* SUMMARY */
+            .cart-summary {
+                background-color: #111;
+                border: 1px solid #242424;
+                border-radius: 10px;
+                padding: 20px;
+                margin-top: 30px;
+            }
+            .cart-summary h2 {
+                font-size: 20px;
+                margin-bottom: 20px;
+            }
+            .summary-row {
+                display: flex;
+                justify-content: space-between;
+                color: #aaa;
+                margin-bottom: 15px;
+            }
+            .summary-total {
+                display: flex;
+                justify-content: space-between;
+                border-top: 1px solid #333;
+                padding-top: 15px;
+                margin-top: 10px;
+                font-size: 18px;
+                font-weight: bold;
+            }
+            .summary-total span:last-child {
+                color: var(--brandcolor);
+            }
+            /* Checkout */
+            .checkout-btn {
+                display: block;
+                width: 100%;
+                padding: 13px;
+                margin-top: 20px;
+                background-color: var(--brandcolor);
+                color: #080808;
+                text-align: center;
+                text-decoration: none;
+                border-radius: 6px;
+                font-weight: bold;
+                cursor: pointer;
+            }
+            .checkout {
+                margin: 30px auto;
+                padding: 20px;
+                max-width: 600px;
+            }
+            .checkout h2 {
+                margin-bottom: 20px;
+            }
+            .form-group {
+                display: flex;
+                flex-direction: column;
+                gap: 8px;
+                margin-bottom: 16px;
+            }
+            .form-group label {
+                font-weight: 600;
+            }
+            .form-group input,
+            .form-group select {
+                width: 100%;
+                padding: 12px;
+                border: 1px solid #444;
+                border-radius: 8px;
+                background: #222;
+                color: white;
+                font-size: 16px;
+            }
+            @media (min-width: 768px) {
+                .cart-page {
+                    max-width: 1200px;
+                    margin: auto;
+                    padding: 50px 30px;
+                }
+                .cart-container {
+                    display: grid;
+                    grid-template-columns: 2fr 1fr;
+                    gap: 30px;
+                    align-items: start;
+                }
+                .cart-summary {
+                    margin-top: 0;
+                    position: sticky;
+                    top: 20px;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <div class="container nav">
+                <i class="fa-solid fa-bars"></i>
+                <a href="index.html"
+                    ><img class="logo" src="imgs/1000057679.png" alt="logo"
+                /></a>
+                <img class="cart" src="imgs/shopping-cart (1).png" alt="cart" />
             </div>
-        </div>
-    </section>
-    <footer class="footer">
-        <div class="footer-main">
-            <div class="footer-brand">
-                <img src="imgs/1000057679.png" alt="Faysal Gym">
-                <p>
-                    Premium supplements for serious athletes.
-                    100% authentic. Better results.
-                </p>
-                <div class="socials">
+            <div class="container menu">
+                <a href="index.html">Home</a>
+                <a href="#">Categorie</a>
+                <a href="#">Products</a>
+                <a href="#">Contact</a>
+            </div>
+        </header>
+        <section class="cart-page">
+            <h1>Your Cart</h1>
+            <div class="cart-container">
+                <div class="cart-items" id="cartItems"></div>
+                <div class="cart-summary">
+                    <h2>Order Summary</h2>
+                    <div class="summary-total">
+                        <span>Total</span>
+                        <span id="total">0 DA</span>
+                    </div>
+                    <section class="checkout">
+                        <h2>Customer Information</h2>
+                        <form id="checkoutForm">
+                            <div class="form-group">
+                                <label for="firstName">Full Name | الاسم و اللقب</label>
+                                <input
+                                    type="text"
+                                    id="firstName"
+                                    placeholder="Enter your full name"
+                                    required
+                                />
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone Number | رقم الهاتف</label>
+                                <input
+                                    type="tel"
+                                    id="phone"
+                                    placeholder="05 XX XX XX XX"
+                                    required
+                                />
+                            </div>
+                            <div class="form-group">
+                                <label for="deliveryType">Delivery Type | نوع التوصيل</label>
+                                <select id="deliveryType" required>
+                                    <optgroup label="--اختر نوع التوصيل--">
+                                        <option value="Home">Home | الى المنزل</option>
+                                        <option value="Office">Office | الى المكتب</option>
+                                    </optgroup>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="wilaya">Wilaya | الولاية</label>
+                                <select id="wilaya" required>
+                                    <option value="">Choose Wilaya | اختر الولاية</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="commune">Commune | البلدية</label>
+                                <select id="commune" required disabled>
+                                    <option value="">Choose Commune | اختر البلدية</option>
+                                </select>
+                            </div>
+                        </form>
+                    </section>
+                    <a class="checkout-btn">Checkout</a>
+                </div>
+            </div>
+        </section>
+        <footer class="footer">
+            <div class="footer-main">
+                <div class="footer-brand">
+                    <img src="imgs/1000057679.png" alt="Faysal Gym" />
+                    <p>
+                        Premium supplements for serious athletes. 100%
+                        authentic. Better results.
+                    </p>
+                    <div class="socials">
+                        <div>
+                            <i class="fa-brands fa-instagram"></i>
+                            <a href="#">Instagram</a>
+                        </div>
+                        <div>
+                            <i class="fa-brands fa-tiktok"></i>
+                            <a href="https://www.tiktok.com/@faycalgym"
+                                >TikTok</a
+                            >
+                        </div>
+                        <div>
+                            <i class="fa-brands fa-whatsapp"></i>
+                            <a href="#">WhatsApp</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-links">
                     <div>
-                        <i class="fa-brands fa-instagram"></i>
-                        <a href="#">Instagram</a>
+                        <h3>Quick Links</h3>
+                        <a href="index.html">Home</a>
+                        <a href="products.html">Products</a>
+                        <a href="#">Categories</a>
+                        <a href="#">About Us</a>
                     </div>
                     <div>
-                        <i class="fa-brands fa-tiktok"></i>
-                        <a href="https://www.tiktok.com/@faycalgym">TikTok</a>
-                    </div>
-                    <div>
-                        <i class="fa-brands fa-whatsapp"></i>
-                        <a href="#">WhatsApp</a>
+                        <h3>Contact</h3>
+                        <p>05 XX XX XX XX</p>
+                        <p>Algeria</p>
                     </div>
                 </div>
             </div>
-            <div class="footer-links">
-                <div>
-                    <h3>Quick Links</h3>
-                    <a href="index.html">Home</a>
-                    <a href="products.html">Products</a>
-                    <a href="#">Categories</a>
-                    <a href="#">About Us</a>
-                </div>
-                <div>
-                    <h3>Contact</h3>
-                    <p>05 XX XX XX XX</p>
-                    <p>Algeria</p>
-                </div>
+            <div class="footer-bottom">
+                <p>© 2026 Faysal Gym · All rights reserved.</p>
+                <p>Designed by <span>Mohamed Devx</span></p>
             </div>
-        </div>
-        <div class="footer-bottom">
-            <p>© 2026 Faysal Gym · All rights reserved.</p>
-            <p>Designed by <span>Mohamed Devx</span></p>
-        </div>
-    </footer>
-    <script src="script/cart.js"></script>
-</body>
+        </footer>
+        <script src="script/cart.js"></script>
+    </body>
 </html>
