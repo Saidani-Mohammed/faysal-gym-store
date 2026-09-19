@@ -231,7 +231,7 @@ wilayaSelected.addEventListener("change", () => {
     })
     filteredCommunes.forEach((e) => {
         communeSelected.innerHTML += `
-            <option value="${e.id}">${e.name} | ${e.name_ar}</option>
+            <option value="${e.name_ar}">${e.name} | ${e.name_ar}</option>
         `
     })
 })
@@ -240,6 +240,9 @@ loadLocations()
 // checkout message btn 
 
 let checkoutBtn = document.querySelector(".checkout-btn")
+let fullName = document.getElementById("firstName")
+let tel = document.getElementById("phone")
+let deliveryType = document.getElementById("deliveryType")
 
 checkoutBtn.addEventListener("click", () => {
     const phone = "213778962950";
@@ -254,16 +257,15 @@ checkoutBtn.addEventListener("click", () => {
         total += product.price * item.quantity
         message += `- ${product.name} x${item.quantity} - ${product.price * item.quantity} DA\n`;
     });
-    console.log(total)
 
     message += `السعر بدون توصيل: ${total} DA\n`;
     message += `
     معلومات التوصيل : \n
-    الاسم و اللقب : 
-    رقم الهاتف :
-    الولاية : 
-    البلدية : 
-    نوع التوصيل :
+    الاسم و اللقب : ${fullName.value}
+    رقم الهاتف : ${tel.value}
+    الولاية : ${wilayas[Number(wilayaSelected.value) - 1].name_ar}
+    البلدية : ${communeSelected.value}
+    نوع التوصيل : ${deliveryType.value}
     `
     const url =
         "https://wa" + ".me/" +
