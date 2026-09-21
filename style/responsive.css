@@ -1,78 +1,493 @@
-/* for phones */
-@media (max-width : 600px) {
+/* =====================================================================
+   PHONES  (≤ 600px)  — unchanged
+   ===================================================================== */
+@media (max-width: 600px) {
     .container {
         padding-left: 10px;
         padding-right: 10px;
     }
 }
 
-/* for tablet */
-@media (min-width: 600px ) and (max-width: 992px) {
+
+/* =====================================================================
+   TABLET & UP  (≥ 601px)
+   ===================================================================== */
+@media (min-width: 601px) {
+    :root {
+        /* المسافة الجانبية للمحتوى */
+        --gutter: 30px;
+    }
+
     .container {
-        padding-left: 30px;
-        padding-right: 30px;
+        padding-left: var(--gutter);
+        padding-right: var(--gutter);
+    }
+
+    /* الـ footer ينزل لآخر الصفحة حتى لو المحتوى قصير */
+    body {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+    }
+    body > section.featured {
+        flex: 1;
+    }
+    body > .footer {
+        margin-top: auto;
+    }
+
+    /* ---------- header : القائمة تصبح drawer جانبي ---------- */
+    header .cart {
+        width: 32px;
+        cursor: pointer;
+    }
+    header .fa-solid {
+        cursor: pointer;
+    }
+    header .menu {
+        top: 50px;
+        left: 0;
+        width: 340px;
+        max-width: 100%;
+        height: calc(100vh - 50px);
+        height: calc(100dvh - 50px);
+        padding: 20px 0;
+        align-items: stretch;
+    }
+    header .menu.active {
+        box-shadow: 12px 0 30px rgba(0, 0, 0, 0.45);
+    }
+    header .menu a {
+        font-size: 20px;
+        height: 64px;
+        padding: 0 var(--gutter);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    /* ---------- hero ---------- */
+    section.hero .slider img {
+        height: 100%;
+        object-fit: cover;
     }
     .hero .hero-content {
-        top: 40%;
+        top: 50%;
         transform: translateY(-50%);
-        padding-left: 30px;
+        width: 55%;
+        padding-left: var(--gutter);
+    }
+    .hero .hero-content h1 {
+        font-size: clamp(32px, 5vw, 48px);
+        line-height: 1.15;
     }
     .hero .hero-content p {
-        padding-top: 30px;
-        padding-bottom: 30px;
+        font-size: 18px;
+        line-height: 1.5;
+        padding-top: 20px;
+        margin-bottom: 25px;
     }
-    .cate {
-        display: flex;
+    .hero .hero-content a {
+        display: inline-block;
+        padding: 12px 26px;
+        font-size: 16px;
+    }
+    .hero .slider-dots {
+        bottom: 22px;
+    }
+    .hero .slider-dots div {
+        width: 24px;
+        height: 8px;
+    }
+    .hero .slider-dots div.active {
+        width: 38px;
+    }
+
+    /* ---------- categories ---------- */
+    section.categories {
+        padding: 20px 0 30px;
+    }
+    section.categories h2 {
+        font-size: 28px;
+        padding: 10px 0 25px;
+    }
+    section.categories .cate {
         justify-content: space-evenly;
     }
-    .categories .cate p {
-        font-size: 15px;
+    section.categories .cate div {
+        cursor: pointer;
     }
-    .categories h3 {
-        font-size: 25px;
+    section.categories img {
+        width: 90px;
+    }
+    section.categories p {
+        font-size: 15px;
+        padding-top: 8px;
+    }
+
+    /* ---------- featured products ---------- */
+    section.featured h2 {
+        font-size: 28px;
+        padding: 30px 20px 25px;
+    }
+    section.featured .fea-p {
+        gap: 24px;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+    section.featured .fea-p h4 {
+        font-size: 18px;
+        padding: 12px 0 0 12px;
+    }
+    section.featured .fea-p p {
+        font-size: 18px;
+        padding: 10px 12px 12px;
+    }
+    section.featured a {
+        margin: 30px 0;
+        margin-left: 50%;
+    }
+
+    /* ---------- about (3 كروت بجانب بعض) ---------- */
+    section.about {
+        padding: 20px 0 50px;
+    }
+    section.about .container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
+    section.about h2 {
+        grid-column: 1 / -1;
+        font-size: 28px;
+        margin-bottom: 20px;
+    }
+    section.about .info {
+        flex-direction: column;
+        text-align: center;
+        margin-bottom: 0;
+        padding: 25px 12px;
+        background-color: #141414;
+        border: 1px solid var(--secondarycolor);
+        border-radius: 12px;
+    }
+    section.about svg {
+        width: 60px;
+        padding-right: 0;
+        margin-bottom: 15px;
+    }
+    section.about span {
+        display: none;
+    }
+    section.about h5 {
+        font-size: 18px;
+    }
+    section.about p {
+        font-size: 15px;
+        padding-top: 8px;
+    }
+
+    /* ---------- footer ---------- */
+    .footer {
+        padding: 50px var(--gutter) 25px;
+    }
+    .footer-links {
+        max-width: 420px;
+        margin: 40px auto 0;
+    }
+    .socials {
+        flex-wrap: wrap;
+    }
+
+    /* ---------- cart (عمود واحد) ---------- */
+    .cart-page {
+        padding: 40px var(--gutter) 60px;
+    }
+    .cart-page h1 {
+        font-size: 32px;
+        margin-bottom: 30px;
     }
 }
 
-/* for computers */
-@media (min-width : 992px) {
-    header .fa-solid {
-        display: none;
+
+/* =====================================================================
+   LARGE TABLET  (≥ 768px)
+   ===================================================================== */
+@media (min-width: 768px) {
+    /* ---------- cart : عمودين ---------- */
+    .cart-container {
+        display: grid;
+        grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+        gap: 24px;
+        align-items: start;
     }
-    .menu {
-        height: 50px;
-        transform: translateX(-20%);
-        transition: none;
-        background-color: transparent;
+    .cart-summary {
+        margin-top: 0;
+        position: sticky;
+        top: 70px; /* تحت الـ header الثابت (50px) */
+    }
+    .cart-image {
+        width: 110px;
+        height: 110px;
+    }
+    /* الفورم داخل الملخص لا يحتاج مسافات إضافية */
+    .checkout {
+        margin: 25px 0 0;
+        padding: 0;
+        max-width: none;
+    }
+
+    /* ---------- footer أفقي ---------- */
+    .footer-main {
         display: flex;
-        flex-direction: row;
-        position: absolute;
-        top: 0;
-        left: 50%;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 40px;
     }
-    .menu a {
-        padding-right: 20px;
+    .footer-brand {
+        flex: 1;
+        min-width: 0;
+        text-align: left;
     }
-    .container {
-        padding-left: 50px;
-        padding-right: 50px;
+    .footer-brand p {
+        margin-left: 0;
+        margin-right: 0;
     }
-    .slide {
-        height: calc(100vh - 50px);
-        overflow: hidden;
+    .socials {
+        justify-content: flex-start;
     }
-    .slide img {
-        object-fit: cover;
+    .footer-links {
+        flex: 0 0 auto;
+        max-width: none;
+        margin: 0;
+        grid-template-columns: repeat(2, auto);
+        gap: 40px;
     }
-    .slider-dots {
-        top: 90vh;
+    .footer-bottom {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
     }
+}
+
+
+/* =====================================================================
+   DESKTOP  (≥ 992px)
+   ===================================================================== */
+@media (min-width: 992px) {
+    :root {
+        /* المحتوى يتمركز بحد أقصى 1280px والخلفيات تبقى بعرض الشاشة */
+        --gutter: max(50px, calc((100% - 1280px) / 2));
+    }
+
     body {
         overflow-x: hidden;
     }
+
+    /* ---------- header : القائمة داخل الـ navbar ---------- */
+    header .fa-solid {
+        display: none;
+    }
+    header .menu,
+    header .menu.active {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        width: auto;
+        height: 50px;
+        padding: 0;
+        flex-direction: row;
+        align-items: center;
+        background-color: transparent;
+        transform: translateX(-50%);
+        transition: none;
+        box-shadow: none;
+    }
+    header .menu a {
+        position: relative;
+        font-size: 16px;
+        font-weight: 600;
+        height: 50px;
+        padding: 0 18px;
+        border-bottom: none;
+    }
+    header .menu a::after {
+        content: "";
+        position: absolute;
+        left: 18px;
+        right: 18px;
+        bottom: 9px;
+        height: 2px;
+        background-color: var(--brandcolor);
+        transform: scaleX(0);
+        transition: transform 0.25s ease;
+    }
+    header .menu a:hover::after {
+        transform: scaleX(1);
+    }
+    header .cart {
+        width: 34px;
+    }
+
+    /* ---------- hero ---------- */
+    section.hero .slider {
+        aspect-ratio: auto;
+        height: clamp(480px, 50vw, calc(100vh - 50px));
+    }
     .hero .hero-content {
-        padding-left: 100px;
-        top: 30%;
-        width: 400px;
+        left: 0;
+        right: 45%;
+        width: auto;
+        padding-left: var(--gutter);
+    }
+    .hero .hero-content h1 {
+        font-size: clamp(44px, 4.2vw, 72px);
+        line-height: 1.1;
+    }
+    .hero .hero-content p {
         font-size: 20px;
+        max-width: 480px;
+        padding-top: 22px;
+        margin-bottom: 30px;
+    }
+    .hero .hero-content a {
+        padding: 14px 34px;
+        transition: background-color 0.2s;
+    }
+    .hero .hero-content a:hover {
+        background-color: #fff;
+    }
+    .hero .slider-dots {
+        bottom: 30px;
+    }
+    .hero .slider-dots div.active {
+        width: 48px;
+    }
+
+    /* ---------- categories ---------- */
+    section.categories {
+        padding: 30px 0 50px;
+    }
+    section.categories h2 {
+        font-size: 34px;
+        padding-bottom: 35px;
+    }
+    section.categories .cate {
+        justify-content: center;
+        gap: 80px;
+    }
+    section.categories img {
+        width: 120px;
+    }
+    section.categories p {
+        font-size: 17px;
+        padding-top: 12px;
+    }
+
+    /* ---------- featured products ---------- */
+    section.featured h2 {
+        font-size: 34px;
+        padding: 40px 20px 35px;
+    }
+    section.featured .fea-p {
+        gap: 30px;
+        /* كروت بحد أقصى 280px وتتوسّط الصف حتى لو عددها قليل */
+        grid-template-columns: repeat(auto-fit, minmax(220px, 280px));
+        justify-content: center;
+    }
+    section.featured .fea-p .product {
+        cursor: pointer;
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    section.featured .fea-p .product:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 14px 30px rgba(0, 0, 0, 0.45);
+    }
+    section.featured .fea-p h4 {
+        font-size: 19px;
+    }
+    section.featured .fea-p p {
+        font-size: 20px;
+    }
+    section.featured a {
+        margin-top: 40px;
+        margin-bottom: 60px;
+    }
+
+    /* ---------- about ---------- */
+    section.about {
+        padding: 30px 0 70px;
+    }
+    section.about .container {
+        gap: 30px;
+    }
+    section.about h2 {
+        font-size: 34px;
+        margin-bottom: 30px;
+    }
+    section.about .info {
+        padding: 35px 20px;
+    }
+    section.about svg {
+        width: 70px;
+    }
+    section.about h5 {
+        font-size: 20px;
+    }
+    section.about p {
+        font-size: 16px;
+    }
+
+    /* ---------- footer ---------- */
+    .footer {
+        padding: 60px var(--gutter) 25px;
+    }
+    .footer-brand {
+        max-width: 380px;
+    }
+    .socials {
+        gap: 20px;
+    }
+    .footer-links {
+        gap: 80px;
+    }
+    .footer-bottom {
+        margin-top: 50px;
+    }
+
+    /* ---------- cart ---------- */
+    .cart-page {
+        padding: 50px var(--gutter) 70px;
+    }
+    .cart-page h1 {
+        font-size: 36px;
+        margin-bottom: 35px;
+    }
+    .cart-container {
+        grid-template-columns: minmax(0, 1fr) 400px;
+        gap: 35px;
+    }
+    .cart-item {
+        gap: 18px;
+        padding: 15px;
+    }
+    .cart-image {
+        width: 120px;
+        height: 120px;
+    }
+    .cart-info h3 {
+        font-size: 18px;
+    }
+    .cart-price {
+        font-size: 18px;
+    }
+    .cart-summary {
+        padding: 25px;
+    }
+    .quantity button:hover {
+        background-color: #2a2a2a;
+    }
+    .remove-btn:hover {
+        text-decoration: underline;
+    }
+    .checkout-btn:hover {
+        filter: brightness(1.1);
     }
 }

@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <title>Product | Faysal Gym</title>
+
+        <link rel="stylesheet" href="style/product.css" />
+    </head>
+
+    <body>
+        <!-- Header -->
+        <header>
+            <a href="index.html" class="logo"> FAYSAL GYM </a>
+
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="products.html">Products</a>
+                <a href="cart.html">Cart</a>
+            </nav>
+        </header>
+
+        <!-- Product -->
+        <main>
+            <section class="product-details">
+                <!-- Product Image -->
+                <div class="product-image">
+                    <img id="product-img" src="" alt="Product" />
+                </div>
+
+                <!-- Product Information -->
+                <div class="product-info">
+                    <span class="product-category" id="product-category">
+                        Category
+                    </span>
+
+                    <h1 id="product-name">Product Name</h1>
+
+                    <p class="product-price" id="product-price">0 DA</p>
+
+                    <p class="product-description" id="product-description">
+                        Product description
+                    </p>
+
+                    <!-- Quantity -->
+                    <div class="quantity-box">
+                        <button id="minus">-</button>
+
+                        <span id="quantity"> 1 </span>
+
+                        <button id="plus">+</button>
+                    </div>
+
+                    <!-- Add to Cart -->
+                    <button class="add-cart-btn" id="add-cart">
+                        Add To Cart
+                    </button>
+                </div>
+            </section>
+
+            <!-- Checkout -->
+            <section class="checkout">
+                <h2>Buy Now</h2>
+
+                <form id="productCheckoutForm">
+                    <!-- First Name -->
+                    <div class="form-group">
+                        <label for="firstName"> First Name </label>
+
+                        <input
+                            type="text"
+                            id="firstName"
+                            placeholder="Enter your first name"
+                            required
+                        />
+                    </div>
+
+                    <!-- Last Name -->
+                    <div class="form-group">
+                        <label for="lastName"> Last Name </label>
+
+                        <input
+                            type="text"
+                            id="lastName"
+                            placeholder="Enter your last name"
+                            required
+                        />
+                    </div>
+
+                    <!-- Phone -->
+                    <div class="form-group">
+                        <label for="phone"> Phone Number </label>
+
+                        <input
+                            type="tel"
+                            id="phone"
+                            placeholder="05 XX XX XX XX"
+                            required
+                        />
+                    </div>
+
+                    <!-- Delivery Type -->
+                    <div class="form-group">
+                        <label for="deliveryType"> Delivery Type </label>
+
+                        <select id="deliveryType" required>
+                            <option value="">Choose delivery type</option>
+
+                            <option value="Home">Home</option>
+
+                            <option value="Office">Office</option>
+                        </select>
+                    </div>
+
+                    <!-- Wilaya -->
+                    <div class="form-group">
+                        <label for="wilaya"> Wilaya </label>
+
+                        <select id="wilaya" required>
+                            <option value="">Choose Wilaya</option>
+                        </select>
+                    </div>
+
+                    <!-- Commune -->
+                    <div class="form-group">
+                        <label for="commune"> Commune </label>
+
+                        <select id="commune" required disabled>
+                            <option value="">Choose Commune</option>
+                        </select>
+                    </div>
+
+                    <!-- Submit -->
+                    <button type="submit" class="checkout-btn">
+                        Order via WhatsApp
+                    </button>
+                </form>
+            </section>
+        </main>
+
+        <script src="./js/products.js"></script>
+        <script src="./js/product.js"></script>
+    </body>
+</html>
