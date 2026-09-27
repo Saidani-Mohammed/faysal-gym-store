@@ -6,7 +6,8 @@ let products = [
         image: "imgs/whey.jpg",
         category: "whey",
         featured: true,
-        active : true
+        active : true,
+        description : "description here"
     },
     {
         id: 2,
@@ -15,7 +16,8 @@ let products = [
         image: "imgs/creatine.jpg",
         category: "creatine",
         featured: true,
-        active : true
+        active : true,
+        description : "description here"
     },
     {
         id: 3,
@@ -24,7 +26,8 @@ let products = [
         image: "imgs/bcaa.jpg",
         category: "vitamins",
         featured: true,
-        active : true
+        active : true,
+        description : "description here"
     },
     {
         id: 4,
@@ -33,7 +36,8 @@ let products = [
         image: "imgs/shirt.jpg",
         category: "accessories",
         featured: false,
-        active : true
+        active : true,
+        description : "description here"
     }
 ]
 

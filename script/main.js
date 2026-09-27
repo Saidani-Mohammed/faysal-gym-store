@@ -69,7 +69,9 @@ let products = [
         price: 8500,
         image: "imgs/whey.jpg",
         category: "whey",
-        featured: true
+        featured: true,
+        active : true,
+        description : "description here"
     },
     {
         id: 2,
@@ -77,7 +79,9 @@ let products = [
         price: 7500,
         image: "imgs/creatine.jpg",
         category: "creatine",
-        featured: true
+        featured: true,
+        active : true,
+        description : "description here"
     },
     {
         id: 3,
@@ -85,7 +89,9 @@ let products = [
         price: 4000,
         image: "imgs/bcaa.jpg",
         category: "vitamins",
-        featured: true
+        featured: true,
+        active : true,
+        description : "description here"
     },
     {
         id: 4,
@@ -93,7 +99,9 @@ let products = [
         price: 2700,
         image: "imgs/shirt.jpg",
         category: "accessories",
-        featured: false
+        featured: false,
+        active : true,
+        description : "description here"
     }
 ]
 

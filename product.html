@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css"
+        />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="style/style.css" />
+        <link rel="stylesheet" href="style/product.css" />
+        <link rel="stylesheet" href="style/responsive.css" />
+        <title>Faycal Nutrition</title>
+    </head>
+    <body>
+        <header>
+            <div class="container nav">
+                <i class="fa-solid fa-bars"></i>
+                <a href="index.html"
+                    ><img class="logo" src="imgs/1000057679.png" alt="logo"
+                /></a>
+                <img class="cart" src="imgs/shopping-cart (1).png" alt="cart" />
+            </div>
+            <div class="container menu">
+                <a href="index.html">Home</a>
+                <a href="#cat">Categorie</a>
+                <a href="products.html">Products</a>
+                <a href="#">Contact</a>
+            </div>
+        </header>
+        <main>
+            <section>
+                <div class="container product">
+                    <img id="product-img" src="" alt="" />
+                    <h1 id="product-name"></h1>
+                    <h3 id="product-price"></h3>
+                </div>
+                <div class="container quantity-btn">
+                    <div class="quantity-selector">
+                        <button class="quantity-btn" id="decrease">-</button>
+                        <span id="quantity">1</span>
+                        <button class="quantity-btn" id="increase">+</button>
+                    </div>
+                </div>
+                <div class="container addBtn">
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="container">
+                    <p id="product-description"></p>
+                </div>
+            </section>
+            <section class="about">
+                <div class="container">
+                    <h2>Why Choose Us ??</h2>
+                    <div class="info">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="#D4AF37"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            class="lucide lucide-shield-check-icon lucide-shield-check"
+                        >
+                            <path
+                                d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"
+                            />
+                            <path d="m9 12 2 2 4-4" />
+                        </svg>
+                        <span></span>
+                        <div>
+                            <h5>100% AUTHENTIC</h5>
+                            <p>Original products only</p>
+                        </div>
+                    </div>
+                    <div class="info">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="#D4AF37"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            class="lucide lucide-truck-icon lucide-truck"
+                        >
+                            <path
+                                d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"
+                            />
+                            <path d="M15 18H9" />
+                            <path
+                                d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"
+                            />
+                            <circle cx="17" cy="18" r="2" />
+                            <circle cx="7" cy="18" r="2" />
+                        </svg>
+                        <span></span>
+                        <div>
+                            <h5>FAST DELIVERY</h5>
+                            <p>Across 68 wilaya</p>
+                        </div>
+                    </div>
+                    <div class="info">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="#D4AF37"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            class="lucide lucide-headset-icon lucide-headset"
+                        >
+                            <path
+                                d="M3 11h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-5Zm0 0a9 9 0 1 1 18 0m0 0v5a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3Z"
+                            />
+                            <path d="M21 16v2a4 4 0 0 1-4 4h-5" />
+                        </svg>
+                        <span></span>
+                        <div>
+                            <h5>24/7 SUPPORT</h5>
+                            <p>We're here to help</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <footer class="footer">
+            <div class="footer-main">
+                <div class="footer-brand">
+                    <img src="imgs/1000057679.png" alt="Faysal Gym" />
+                    <p>
+                        Premium supplements for serious athletes. 100%
+                        authentic. Better results.
+                    </p>
+                    <div class="socials">
+                        <div>
+                            <i class="fa-brands fa-instagram"></i>
+                            <a href="#">Instagram</a>
+                        </div>
+                        <div>
+                            <i class="fa-brands fa-tiktok"></i>
+                            <a href="https://www.tiktok.com/@faycalgym"
+                                >TikTok</a
+                            >
+                        </div>
+                        <div>
+                            <i class="fa-brands fa-whatsapp"></i>
+                            <a href="#">WhatsApp</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <div>
+                        <h3>Quick Links</h3>
+                        <a href="index.html">Home</a>
+                        <a href="products.html">Products</a>
+                        <a href="#">Categories</a>
+                        <a href="#">About Us</a>
+                    </div>
+                    <div>
+                        <h3>Contact</h3>
+                        <p>05 XX XX XX XX</p>
+                        <p>Algeria</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 Faysal Gym · All rights reserved.</p>
+                <p>Designed by <span>Mohamed Devx</span></p>
+            </div>
+        </footer>
+        <script src="script/product.js"></script>
+    </body>
+</html>
