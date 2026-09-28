@@ -35,7 +35,10 @@ html, body{
 }
 .product #product-img{
     aspect-ratio: 1/1;
+    margin-top: 20px;
+    max-width: 100%;
     /* object-fit: cover; */
+    border-radius: 10px;
 }
 .product #product-name{
     color: white;
